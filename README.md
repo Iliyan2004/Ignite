@@ -139,7 +139,7 @@ git clone https://github.com/xecanto/ignite.git
 1. Install dependencies:
 ```bash
 cd frontend
-npm install
+yarn install
 ```
 
 2. Configure environment variables:
@@ -148,7 +148,7 @@ npm install
 
 3. Start the development server:
 ```bash
-npm start
+yarn start
 ```
 
 ### Backend

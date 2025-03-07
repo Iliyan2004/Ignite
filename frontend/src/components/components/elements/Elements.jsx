@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react'
 import { Sun, Moon, X, Loader, Check } from 'lucide-react'
 
 // Button Component with loading state
-export const Button = ({ children, variant = 'primary', icon: Icon, className = '', loading = false, ...props }) => {
+export const Button = ({ children, variant = 'primary', icon: Icon, className = '', loading = false, pressEffect = true, ...props }) => {
   const baseStyles = 'px-4 py-2 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 relative';
   const variants = {
-    primary: 'bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white disabled:bg-orange-300',
-    secondary: 'border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white disabled:opacity-50',
+    primary: 'bg-red-500 hover:bg-red-500 active:bg-red-500 text-white disabled:bg-red-500',
+    secondary: 'bg-nuetral-900 text-red-500 hover:scale-105 disabled:opacity-50',
     ghost: 'hover:bg-gray-100 dark:hover:bg-gray-800 disabled:hover:bg-transparent'
   };
 
@@ -25,7 +25,8 @@ export const Button = ({ children, variant = 'primary', icon: Icon, className = 
         </>
       )}
       {/* Button press effect overlay */}
-      <span className="absolute inset-0 bg-black opacity-0 transition-opacity duration-100 rounded-lg hover:opacity-5 active:opacity-10" />
+      {pressEffect &&
+        <span className="absolute inset-0 bg-black opacity-0 transition-opacity duration-100 rounded-lg hover:opacity-5 active:opacity-10" />}
     </button>
   );
 };
@@ -107,7 +108,8 @@ export const ThemeToggle = () => {
         variant="ghost" 
         onClick={toggleTheme}
         icon={isDark ? Sun : Moon}
-        className="text-gray-600 dark:text-gray-300"
+        pressEffect={false}
+        className='hover:bg-transparent hover:scale-125 dark:text-white dark:hover:bg-transparent hover:text-red-500'
         aria-label="Toggle theme"
       />
     );

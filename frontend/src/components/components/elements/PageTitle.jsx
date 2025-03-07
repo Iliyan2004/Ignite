@@ -9,5 +9,4 @@ export const PageTitle = ({ title }) => {
     }, [location, title]);
 
     return null;
-
 }
